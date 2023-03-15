@@ -3,39 +3,56 @@
   padding: 0;
 }
 header {
-  /* background-color: beige; */
-  overflow: hidden;
-  clear: both;
+  /* overflow: hidden; */
+  /* clear: both; */
+  top: 0;
+  left: 0;
+  /* header采用固定定位始终保持不动 */
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  height: 3.6rem;
+  background-color: #fff;
+  box-sizing: border-box;
   border-bottom: 1px solid #eaecef;
+  padding: 0.7rem 1.5rem;
+  line-height: 2.2rem;
 }
 
-#header-left {
-  float: left;
-  margin: 20px 20px;
-}
-
-#header-left > a {
+header > a {
+  display: inline-block;
   text-decoration: none;
+}
+
+header > a > span {
   font-size: 1.3rem;
   font-weight: 600;
   color: #2c3e50;
+  position: relative;
 }
 
 header > nav {
-  width: 600px;
-  float: right;
-  margin: 20px 20px;
+  padding-left: 1.5rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 0.7rem;
+  display: flex;
 }
 
 nav > ul {
-  width: 600px;
-  margin: 0 auto;
+  display: inline-block;
   list-style: none;
 }
 
 nav > ul > li {
-  float: left;
-  padding-left: 10px;
+  margin-left: 0;
+  position: relative;
+  display: inline-block;
+  line-height: 2rem;
 }
 
 nav > ul > li > a {
@@ -44,6 +61,7 @@ nav > ul > li > a {
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-left: 10px;
 }
 
 nav > ul > li > a:hover {
@@ -52,28 +70,161 @@ nav > ul > li > a:hover {
   border-bottom: 2px solid green;
 }
 
-section div {
+section {
   width: 800px;
-  height: 800px;
   margin: 0 auto;
   text-align: center;
-  border-bottom: 2px solid red;
+  margin-top: 80px;
 }
 
-section img {
-  width: 400px;
+.logo > a {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #3eaf7c;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  transition: background-color 0.1s ease;
+  box-sizing: border-box;
+  border-bottom: 1px solid #389d70;
+  text-decoration: none;
+}
+
+.logo > p {
+  max-width: 35rem;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: #6a8bad;
+  margin: 1.8rem auto;
+  background-image: -webkit-linear-gradient(
+    left,
+    #fdbb2d,
+    #22c1c3 25%,
+    #fdbb2d 50%,
+    #22c1c3 75%,
+    #fdbb2d
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-background-size: 200% 100%;
+  animation: myGradientChange 4s linear infinite;
+}
+
+.logo > img {
+  width: 300px;
   height: 280px;
   display: block;
   margin: 0 auto;
 }
 
-section h1 {
+.logo > h1 {
+  display: block;
   width: 600px;
+  margin: 20px auto;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.25;
+  background-image: -webkit-linear-gradient(
+    left,
+    #22c1c3,
+    #fdbb2d 25%,
+    #22c1c3 50%,
+    #fdbb2d 75%,
+    #22c1c3
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-background-size: 200% 100%;
+  animation: myGradientChange 4s linear infinite;
+}
+
+.features {
+  border-top: 1px solid #eaecef;
+  padding: 20px 0;
+  margin-top: 30px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.feature {
+  max-width: 30%;
+  text-align: left;
+}
+
+.feature > h2 {
+  margin-bottom: 10px;
+}
+
+.customer {
+  border-bottom: 1px solid #eaecef;
+}
+
+.customer-title {
+  max-width: 670px;
   margin: 0 auto;
+  font-size: 1.65rem;
+  padding: 2rem 0.5rem 0.3rem;
+  font-weight: 600;
+  border-bottom: 1px solid #eaecef;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #2c3e50;
+}
+
+.customer-content {
+  text-align: left;
+  max-width: 600px;
+  font-size: 1rem;
+  color: #4e6e8e;
+  border-left: 0.5rem solid #00bcd4;
+  margin: 1rem 140px;
+  padding: 0.25rem 1rem 0.25rem 1rem;
 }
 
 footer div {
   width: 600px;
   margin: 30px auto;
   text-align: center;
+}
+
+/* 定义动画 */
+@keyframes myGradientChange {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* 浏览器 */
+@media screen and (min-width: 996px) {
+  .search-box input {
+    height: 2rem;
+    border: 1px solid #cfd4db;
+    border-radius: 2rem;
+    padding: 0 0.5rem 0 2rem;
+    outline: none;
+    margin-right: 10px;
+  }
+  .search-box input:focus {
+    border-color: #3eaf7c;
+  }
+}
+/* pad的尺寸 */
+@media screen and (max-width: 996px) and (min-width: 768px) {
+  .search-box {
+    display: none;
+  }
+}
+/* 手机 */
+@media screen and (max-width: 768px) {
+  .search-box {
+    display: none;
+  }
 }
